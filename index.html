@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fresh, hot pizza made to order. Order online from Jounkey's Pizza Shop.">
+  <title>Jounkey's Pizza Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="top">
+    <h1>Jounkey's Pizza Shop</h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#order">Order Online</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="home">
+      <h2>Hot pizza, made fresh when you order</h2>
+      <img src="image.pizza/pizza6.png" alt="pizza" width="100"  height="100">
+      <img src="image.pizza/pizza-2.png" alt="pizza" width="100" height="100">
+      <img src="image.pizza/pizza-3.png" alt="pizza" width="100" height="100">
+      <img src="image.pizza/pizza-4.png" alt="pizza" width="100" height="100">
+      <p>Hand-stretched dough, rich tomato sauce and plenty of cheese.
+         Pick your favourite and we'll bring it to you.</p>
+      <a href="#order">Order now</a>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu">
+      <h2>Our Menu</h2>
+      <table>
+        <caption>Pizza prices in KES</caption>
+        <thead>
+          <tr>
+            <th scope="col">Pizza</th>
+            <th scope="col">Toppings</th>
+            <th scope="col">Small</th>
+            <th scope="col">Medium</th>
+            <th scope="col">Large</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Margherita</th>
+            <td>Tomato sauce, mozzarella, basil</td>
+            <td>400</td>
+            <td>600</td>
+            <td>800</td>
+          </tr>
+          <tr>
+            <th scope="row">Pepperoni</th>
+            <td>Pepperoni, mozzarella, tomato sauce</td>
+            <td>500</td>
+            <td>750</td>
+            <td>1000</td>
+          </tr>
+          <tr>
+            <th scope="row">Chicken BBQ</th>
+            <td>Grilled chicken, BBQ sauce, onions</td>
+            <td>550</td>
+            <td>800</td>
+            <td>1100</td>
+          </tr>
+          <tr>
+            <th scope="row">Veggie Delight</th>
+            <td>Peppers, mushrooms, onions, sweetcorn</td>
+            <td>450</td>
+            <td>650</td>
+            <td>900</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+        <!-- ORDER FORM -->
+    <section id="order">
+      <h2>Order Online</h2>
+      <form action="#" method="post">
+
+        <div>
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div>
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <div>
+          <label for="pizza">Pizza</label>
+          <select id="pizza" name="pizza" required>
+            <option value="">Choose a pizza</option>
+            <option value="margherita">Margherita</option>
+            <option value="pepperoni">Pepperoni</option>
+            <option value="chicken-bbq">Chicken BBQ</option>
+            <option value="veggie">Veggie Delight</option>
+          </select>
+        </div>
+
+        <fieldset>
+          <legend>Size</legend>
+          <label><input type="radio" name="size" value="small" required> Small</label>
+          <label><input type="radio" name="size" value="medium"> Medium</label>
+          <label><input type="radio" name="size" value="large"> Large</label>
+        </fieldset>
+
+        <div>
+          <label for="quantity">Quantity</label>
+          <input type="number" id="quantity" name="quantity" min="1" max="20" value="1" required>
+        </div>
+
+        <div>
+          <label for="address">Delivery address</label>
+          <textarea id="address" name="address" rows="3" required></textarea>
+        </div>
+
+        <div>
+          <label for="notes">Notes (optional)</label>
+          <textarea id="notes" name="notes" rows="3"></textarea>
+        </div>
+
+        <div>
+          <label for="order-total">Your total</label>
+          <output id="order-total">KES 0</output>
+        </div>
+
+        <fieldset>
+          <legend>Send my order via</legend>
+          <label><input type="radio" name="channel" value="whatsapp" required> WhatsApp</label>
+          <label><input type="radio" name="channel" value="email"> Email</label>
+        </fieldset>
+
+        <button type="submit">Place order</button>
+        <p id="order-status" role="status"></p>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Jounkey's Pizza Shop. All rights reserved.</p>
+    <p><a href="#top">Back to top</a></p>
+  </footer>
+
+  <script src="script.js" defer></script>
+
+</body>
+</html>
