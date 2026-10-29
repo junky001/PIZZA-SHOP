@@ -84,69 +84,94 @@
     </section>
 
         <!-- ORDER FORM -->
-    <section id="order">
-      <h2>Order Online</h2>
-      <form action="#" method="post">
+    <!-- ORDER FORM -->
+<section id="order">
+  <h2>Order Online</h2>
+  <form action="#" method="post">
 
-        <div>
-          <label for="name">Full name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
+    <!-- PART 1: BUILD YOUR ORDER -->
+    <fieldset>
+      <legend>Add a pizza to your cart</legend>
 
-        <div>
-          <label for="phone">Phone number</label>
-          <input type="tel" id="phone" name="phone" required>
-        </div>
+      <div>
+        <label for="pizza">Pizza</label>
+        <select id="pizza" name="pizza">
+          <option value="">Choose a pizza</option>
+          <option value="margherita">Margherita</option>
+          <option value="pepperoni">Pepperoni</option>
+          <option value="chicken-bbq">Chicken BBQ</option>
+          <option value="veggie">Veggie Delight</option>
+        </select>
+      </div>
 
-        <div>
-          <label for="pizza">Pizza</label>
-          <select id="pizza" name="pizza" required>
-            <option value="">Choose a pizza</option>
-            <option value="margherita">Margherita</option>
-            <option value="pepperoni">Pepperoni</option>
-            <option value="chicken-bbq">Chicken BBQ</option>
-            <option value="veggie">Veggie Delight</option>
-          </select>
-        </div>
+      <fieldset>
+        <legend>Size</legend>
+        <label><input type="radio" name="size" value="small"> Small</label>
+        <label><input type="radio" name="size" value="medium"> Medium</label>
+        <label><input type="radio" name="size" value="large"> Large</label>
+      </fieldset>
 
-        <fieldset>
-          <legend>Size</legend>
-          <label><input type="radio" name="size" value="small" required> Small</label>
-          <label><input type="radio" name="size" value="medium"> Medium</label>
-          <label><input type="radio" name="size" value="large"> Large</label>
-        </fieldset>
+      <div>
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="20" value="1">
+      </div>
 
-        <div>
-          <label for="quantity">Quantity</label>
-          <input type="number" id="quantity" name="quantity" min="1" max="20" value="1" required>
-        </div>
+      <button type="button" id="add-to-cart">Add to cart</button>
+      <p id="cart-message" role="status"></p>
+    </fieldset>
 
-        <div>
-          <label for="address">Delivery address</label>
-          <textarea id="address" name="address" rows="3" required></textarea>
-        </div>
-
-        <div>
-          <label for="notes">Notes (optional)</label>
-          <textarea id="notes" name="notes" rows="3"></textarea>
-        </div>
-
-        <div>
-          <label for="order-total">Your total</label>
-          <output id="order-total">KES 0</output>
-        </div>
-
-        <fieldset>
-          <legend>Send my order via</legend>
-          <label><input type="radio" name="channel" value="whatsapp" required> WhatsApp</label>
-          <label><input type="radio" name="channel" value="email"> Email</label>
-        </fieldset>
-
-        <button type="submit">Place order</button>
-        <p id="order-status" role="status"></p>
-      </form>
+    <!-- PART 2: THE CART -->
+    <section id="cart" aria-live="polite">
+      <h3>
+         <svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+             <circle cx="9" cy="21" r="1"></circle>
+             <circle cx="20" cy="21" r="1"></circle>
+             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+         </svg>
+            Your cart
+            <span id="cart-count">0</span>
+      </h3>
+      <ul id="cart-items">
+        <li id="cart-empty">Your cart is empty.</li>
+      </ul>
+      <div>
+        <label for="order-total">Your total</label>
+        <output id="order-total">KES 0</output>
+      </div>
     </section>
 
+    <!-- PART 3: YOUR DETAILS -->
+    <div>
+      <label for="name">Full name</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+
+    <div>
+      <label for="phone">Phone number</label>
+      <input type="tel" id="phone" name="phone" required>
+    </div>
+
+    <div>
+      <label for="address">Delivery address</label>
+      <textarea id="address" name="address" rows="3" required></textarea>
+    </div>
+
+    <div>
+      <label for="notes">Notes (optional)</label>
+      <textarea id="notes" name="notes" rows="3"></textarea>
+    </div>
+
+    <fieldset>
+      <legend>Send my order via</legend>
+      <label><input type="radio" name="channel" value="whatsapp" required> WhatsApp</label>
+      <label><input type="radio" name="channel" value="email"> Email</label>
+    </fieldset>
+
+    <button type="submit">Place order</button>
+    <p id="order-status" role="status"></p>
+  </form>
+</section>
   </main>
 
   <!-- FOOTER -->
@@ -154,6 +179,14 @@
     <p>&copy; 2026 Jounkey's Pizza Shop. All rights reserved.</p>
     <p><a href="#top">Back to top</a></p>
   </footer>
+
+  <!-- ORDER SUCCESS POP-UP -->
+<dialog id="order-dialog" aria-labelledby="order-dialog-title">
+  <div class="dialog-icon" aria-hidden="true">&#10003;</div>
+  <h2 id="order-dialog-title">Order placed successfully!</h2>
+  <p id="order-dialog-text"></p>
+  <button type="button" id="order-dialog-close">OK</button>
+</dialog>
 
   <script src="script.js" defer></script>
 

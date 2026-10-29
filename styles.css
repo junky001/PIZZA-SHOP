@@ -433,3 +433,217 @@ footer a {
     transition: none !important;
   }
 }
+
+/* ---------- Cart (paste at the very end of styles.css) ---------- */
+
+/* The "Add a pizza to your cart" box */
+form > fieldset:first-of-type {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  background: var(--dough);
+}
+
+form > fieldset:first-of-type legend {
+  padding: 0 0.5rem;
+  color: var(--tomato);
+  font-size: 1.15rem;
+}
+
+/* Pizza and Quantity labels: plain text labels, not pill buttons */
+form > fieldset:first-of-type div > label {
+  display: block;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  font-weight: 700;
+  cursor: default;
+}
+
+/* Add to cart button */
+#add-to-cart {
+  justify-self: start;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--tomato);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--tomato);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+#add-to-cart:hover {
+  background: var(--tomato);
+  color: #fff;
+}
+
+/* Small messages under the buttons */
+#cart-message,
+#order-status {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* The cart box (it is a <section>, so we cancel the big section padding) */
+#cart {
+  padding: 1.25rem;
+  scroll-margin-top: 0;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+}
+
+#cart h3 {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--tomato);
+}
+
+#cart-items {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#cart-items li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px dashed var(--line);
+}
+
+#cart-items li:last-child {
+  border-bottom: none;
+}
+
+#cart-empty {
+  color: #7a6355;
+}
+
+/* Remove buttons */
+.remove-item {
+  flex-shrink: 0;
+  padding: 0.35rem 0.9rem;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--tomato-dark);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.remove-item:hover {
+  border-color: var(--tomato);
+  background: #fff0ee;
+}
+
+/* Total row */
+#cart > div {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 2px solid var(--line);
+}
+
+#order-total {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--tomato);
+}
+
+/* Cart icon and item count */
+#cart h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cart-icon {
+  flex-shrink: 0;
+}
+
+#cart-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.6rem;
+  height: 1.6rem;
+  padding: 0 0.45rem;
+  border-radius: 999px;
+  background: var(--tomato);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ---------- Order success pop-up ---------- */
+#order-dialog {
+  width: min(90vw, 24rem);
+  padding: 2rem 1.5rem;
+  border: none;
+  border-radius: 22px;
+  background: #fff;
+  color: var(--ink);
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(43, 26, 20, 0.35);
+}
+
+#order-dialog::backdrop {
+  background: rgba(43, 26, 20, 0.55);
+}
+
+.dialog-icon {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: var(--basil);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+#order-dialog h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.6rem;
+  color: var(--basil);
+}
+
+#order-dialog p {
+  margin: 0 0 1.5rem;
+}
+
+#order-dialog-close {
+  padding: 0.8rem 2.5rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--tomato);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 5px 0 var(--tomato-dark);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+#order-dialog-close:hover {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 var(--tomato-dark);
+}
